@@ -1,14 +1,13 @@
 <template>
-  <div class="app">
-    <router-view />
-  </div>
+  <div class="index"></div>
 </template>
 
 <script setup lang="ts"></script>
 
 <style scoped lang="less">
-.app {
-  position: relative;
+.index {
   width: 100%;
+  height: 100%;
+  background-color: #fff;
 }
 </style>
