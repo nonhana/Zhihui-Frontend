@@ -15,9 +15,9 @@
 </template>
 
 <script setup lang="ts">
-import HomeHeader from '@/components/ModelHome/HomeHeader.vue'
+import HomeHeader from '../../components/ModelHome/HomeHeader.vue'
 import HomeSideBar from '../../components/ModelHome/HomeSideBar.vue'
-import HomeDrawingBoard from '@/components/ModelHome/HomeDrawingBoard.vue'
+import HomeDrawingBoard from '../../components/ModelHome/HomeDrawingBoard.vue'
 </script>
 
 <style scoped lang="scss">

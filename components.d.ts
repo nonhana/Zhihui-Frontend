@@ -16,7 +16,6 @@ declare module 'vue' {
     ElInput: typeof import('element-plus/es')['ElInput']
     ElRow: typeof import('element-plus/es')['ElRow']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
-    HomeDrawer: typeof import('./src/components/ModelHome/HomeDrawer.vue')['default']
     HomeDrawingBoard: typeof import('./src/components/ModelHome/HomeDrawingBoard.vue')['default']
     HomeHeader: typeof import('./src/components/ModelHome/HomeHeader.vue')['default']
     HomeSideBar: typeof import('./src/components/ModelHome/HomeSideBar.vue')['default']
