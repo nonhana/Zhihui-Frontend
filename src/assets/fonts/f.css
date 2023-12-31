@@ -1,0 +1,19 @@
+@font-face {
+  font-family: ZhanKuKuaiLeTi;
+  src: url('./ZhanKuKuaiLeTi.ttf');
+}
+
+@font-face {
+  font-family: HarmonyOS_Sans_SC_Medium;
+  src: url('./HarmonyOS_Sans_SC_Medium.ttf');
+}
+
+@font-face {
+  font-family: HarmonyOS_Sans_SC_Regular;
+  src: url('./HarmonyOS_Sans_SC_Regular.ttf');
+}
+
+@font-face {
+  font-family: HarmonyOS_Sans_SC_Bold;
+  src: url('./HarmonyOS_Sans_SC_Bold.ttf');
+}

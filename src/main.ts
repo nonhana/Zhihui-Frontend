@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import 'element-plus/dist/index.css'
+import 'element-plus/dist/index.css' // Element Plus Icons
 import { createPinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import router from './router'

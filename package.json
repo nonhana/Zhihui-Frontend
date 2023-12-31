@@ -11,6 +11,9 @@
     "format": "prettier --write \"./**/*.{html,vue,ts,js,json,md}\""
   },
   "dependencies": {
+    "core-js": "^3.35.0",
+    "vue-drawing-canvas": "^1.0.14",
+    "@element-plus/icons-vue": "^2.3.1",
     "@types/node": "^20.10.5",
     "axios": "^1.6.2",
     "element-plus": "^2.4.4",
