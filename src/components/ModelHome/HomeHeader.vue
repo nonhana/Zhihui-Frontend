@@ -30,7 +30,7 @@
         v-else
         effect="dark"
         content="双击可重新打开关键词输入框"
-        placement="bottom"
+        placement="top"
       >
         <div class="prompt" @dblclick="showInput = true">
           <span>
@@ -41,8 +41,13 @@
     </div>
     <div class="controller">
       <div class="edit">
-        <img :src="HomeHeaderLeftArrow" alt="HomeHeaderLeftArrow" />
-        <img :src="HomeHeaderRightArrow" alt="HomeHeaderRightArrow" />
+        <el-tooltip effect="dark" content="撤销一步" placement="top">
+          <el-icon><RefreshLeft /></el-icon>
+        </el-tooltip>
+
+        <el-tooltip effect="dark" content="重做一步" placement="top">
+          <el-icon><RefreshRight /></el-icon>
+        </el-tooltip>
       </div>
       <div class="divider" />
       <div class="buttons">
@@ -56,10 +61,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useStore } from '../../store'
-import HomeHeaderLeftArrow from '@/assets/svgs/HomeHeaderLeftArrow.svg'
-import HomeHeaderRightArrow from '@/assets/svgs/HomeHeaderRightArrow.svg'
 import { Search, ArrowDown } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
+import { RefreshLeft, RefreshRight } from '@element-plus/icons-vue'
 
 const { paintConfig } = useStore()
 
@@ -142,11 +146,15 @@ const savePrompt = () => {
     .edit {
       display: flex;
       align-items: center;
-      img {
+      :deep(.el-icon) {
         margin-left: 16px;
         width: 24px;
         height: 24px;
         cursor: pointer;
+        svg {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
     .buttons {

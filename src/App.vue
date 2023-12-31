@@ -3,7 +3,6 @@
     <el-row>
       <CommonHeader />
     </el-row>
-
     <el-row>
       <router-view />
     </el-row>

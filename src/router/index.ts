@@ -1,4 +1,6 @@
 // src/router/index.ts
+// vue-router相关配置
+
 import { createWebHistory, createRouter, RouteRecordRaw } from 'vue-router'
 
 const routes: RouteRecordRaw[] = [

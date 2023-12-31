@@ -18,41 +18,68 @@
         <img :src="item.logo" alt="logo" />
         <span>{{ item.name }}</span>
       </div>
+      <div></div>
     </div>
     <div class="list">
       <div class="list-header">
-        <img :src="HomeSideBarTools" alt="HomeSideBarTools" />
-        <span>绘画工具区</span>
+        <img :src="HomeSideBarController" alt="HomeSideBarController" />
+        <span>绘画设置区</span>
+      </div>
+      <div class="list-item" @click="controllerTrigger(-1)">
+        <component :is="locking ? Unlock : Lock" />
+        <span>{{ locking ? '解锁画布' : '锁定画布' }}</span>
       </div>
       <div
-        v-for="(item, index) in PAINT_TOOLS"
+        v-for="(item, index) in PAINT_CONTROLLERS"
         :key="index"
-        :class="
-          paintConfig.presentTool === item.name
-            ? 'list-item active'
-            : 'list-item'
-        "
-        @click="setTool(item.name)"
+        class="list-item"
+        @click="controllerTrigger(index)"
       >
-        <img :src="item.logo" alt="logo" />
-        <span>{{ item.name }}</span>
+        <component :is="PAINT_CONTROLLERS_ICONS[index]" />
+        <span>{{ item }}</span>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import { useStore } from '../../store'
-import { PAINT_TOOLS } from '../../utils/constants'
+import {
+  PAINT_TOOLS,
+  PAINT_CONTROLLERS,
+  PAINT_CONTROLLERS_ICONS
+} from '../../utils/constants'
 import HomeSideBarTools from '@/assets/svgs/HomeSideBarTools.svg'
+import HomeSideBarController from '@/assets/svgs/HomeSideBarController.svg'
+import { Lock, Unlock } from '@element-plus/icons-vue'
 
 const { paintConfig } = useStore()
+
+const locking = ref<boolean>(false)
+const toolStatus = ref<boolean[]>([
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false
+])
 
 const setTool = (tool: string) => {
   if (paintConfig.presentTool === tool) {
     paintConfig.presentTool = ''
   } else {
     paintConfig.presentTool = tool
+  }
+}
+const controllerTrigger = (type: number) => {
+  switch (type) {
+    case -1:
+      locking.value = !locking.value
+      break
   }
 }
 </script>
@@ -95,9 +122,13 @@ const setTool = (tool: string) => {
       transition: all 0.3s;
       &:hover {
         color: #5b54e4;
-        margin-left: 10px;
+        margin-left: 20px;
       }
       img {
+        width: 24px;
+        height: 24px;
+      }
+      svg {
         width: 24px;
         height: 24px;
       }
@@ -107,7 +138,7 @@ const setTool = (tool: string) => {
     }
     .active {
       color: #5b54e4;
-      margin-left: 10px;
+      margin-left: 20px;
     }
   }
 }

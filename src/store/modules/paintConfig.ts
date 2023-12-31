@@ -3,7 +3,12 @@ import { defineStore } from 'pinia'
 export const usePaintConfigStore = defineStore('paintConfig', {
   state: () => ({
     prompt: <string>'',
-    presentTool: <string>''
+    presentTool: <string>'',
+    toolSettings: <
+      {
+        [key: string]: any
+      }
+    >{}
   }),
   actions: {
     setPresentTool(tool: string) {
