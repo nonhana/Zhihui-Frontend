@@ -42,11 +42,11 @@
     <div class="controller">
       <div class="edit">
         <el-tooltip effect="dark" content="撤销一步" placement="top">
-          <el-icon><RefreshLeft /></el-icon>
+          <el-icon @click="emits('undo')"><RefreshLeft /></el-icon>
         </el-tooltip>
 
         <el-tooltip effect="dark" content="重做一步" placement="top">
-          <el-icon><RefreshRight /></el-icon>
+          <el-icon @click="emits('redo')"><RefreshRight /></el-icon>
         </el-tooltip>
       </div>
       <div class="divider" />
@@ -66,6 +66,11 @@ import { ElMessage } from 'element-plus'
 import { RefreshLeft, RefreshRight } from '@element-plus/icons-vue'
 
 const { paintConfig } = useStore()
+
+const emits = defineEmits<{
+  (e: 'undo'): void
+  (e: 'redo'): void
+}>()
 
 const userInfo = ref({
   name: '用户名',

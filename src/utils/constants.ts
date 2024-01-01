@@ -12,8 +12,7 @@ import {
   PictureFilled,
   Remove,
   Brush,
-  Picture,
-  CollectionTag
+  Picture
 } from '@element-plus/icons-vue'
 
 export const HEADER_TABS = ['首页', '画板页面', '生成页面', '帮助中心']
@@ -57,8 +56,7 @@ export const PAINT_CONTROLLERS: string[] = [
   '保存轨迹',
   '移除保存的轨迹',
   '背景色',
-  '背景图片',
-  '水印图片'
+  '背景图片'
 ]
 
 export const PAINT_CONTROLLERS_ICONS = [
@@ -66,6 +64,5 @@ export const PAINT_CONTROLLERS_ICONS = [
   PictureFilled,
   Remove,
   Brush,
-  Picture,
-  CollectionTag
+  Picture
 ]

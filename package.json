@@ -11,15 +11,16 @@
     "format": "prettier --write \"./**/*.{html,vue,ts,js,json,md}\""
   },
   "dependencies": {
-    "core-js": "^3.35.0",
-    "vue-drawing-canvas": "^1.0.14",
     "@element-plus/icons-vue": "^2.3.1",
     "@types/node": "^20.10.5",
     "axios": "^1.6.2",
+    "core-js": "^3.35.0",
     "element-plus": "^2.4.4",
     "pinia": "^2.1.7",
     "pinia-plugin-persistedstate": "^3.2.0",
     "vue": "^3.3.11",
+    "vue-drawing-canvas": "^1.0.14",
+    "vue-picture-cropper": "^0.7.0",
     "vue-router": "^4.2.5"
   },
   "devDependencies": {
