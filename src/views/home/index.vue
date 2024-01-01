@@ -4,7 +4,7 @@
       <HomeHeader @undo="undo" @redo="redo" />
     </el-row>
     <el-row
-      style="width: calc(100% - 60px); margin: 0 auto"
+      style="width: calc(100% - 60px); margin: 30px auto"
       type="flex"
       justify="space-between"
     >

@@ -5,8 +5,8 @@
         <vue-drawing-canvas
           ref="VueCanvasDrawing"
           v-model:image="image"
-          :width="990"
-          :height="660"
+          :width="width"
+          :height="height"
           :stroke-type="paintConfig.toolSettings.strokeType"
           :line-cap="paintConfig.toolSettings.lineCap"
           :line-join="paintConfig.toolSettings.lineJoin"
@@ -19,22 +19,38 @@
           :initial-image="initialImage"
           saveAs="png"
           :styles="{
-            border: 'solid 1px #000'
+            border: 'solid 1px #000',
+            borderRadius: '10px'
           }"
           :lock="paintConfig.toolSettings.lock"
           @mousemove="getCoordinate($event)"
         />
-        <p>
-          x轴坐标：<strong>{{ x }}</strong
-          >，y轴坐标：<strong>{{ y }}</strong>
-        </p>
-        <el-button @click="savePicture">保存</el-button>
+        <div class="info">
+          <el-row style="margin-top: 10px" type="flex" align="middle">
+            <span>
+              x轴坐标：<strong>{{ x }}</strong
+              >，y轴坐标：<strong>{{ y }}</strong>
+            </span>
+          </el-row>
+          <el-row style="margin-top: 10px" type="flex" align="middle">
+            <span>画布大小：</span>
+            <div>
+              <el-input-number v-model="width" :min="300" :max="1200" />
+            </div>
+            <span>&emsp;×&emsp;</span>
+            <div>
+              <el-input-number v-model="height" :min="200" :max="800" />
+            </div>
+          </el-row>
+          <el-row style="margin-top: 10px" type="flex" align="middle">
+            <div>
+              <el-button type="primary" @click="savePicture"
+                >保存图片</el-button
+              >
+            </div>
+          </el-row>
+        </div>
       </div>
-
-      <!-- <div class="output">
-        <p>Output:</p>
-        <img :src="image" style="border: solid 1px #000000" />
-      </div> -->
     </div>
   </div>
 </template>
@@ -72,6 +88,8 @@ const initialImage = ref([
 
 const x = ref(0)
 const y = ref(0)
+const width = ref(900)
+const height = ref(600)
 const image = ref('')
 
 const getCoordinate = (event: any) => {
@@ -92,9 +110,28 @@ const getStrokes = () => {
   })
 }
 
+// 保存图片
 const savePicture = () => {
-  const res = VueCanvasDrawing.value.save()
-  console.log(res)
+  // 将Base64字符串转换为Blob对象的函数
+  function base64ToBlob(base64: string) {
+    const binaryString = window.atob(base64.split(',')[1]) // 移除Base64的前缀并解码
+    const bytes = new Uint8Array(binaryString.length)
+    for (let i = 0; i < binaryString.length; i++) {
+      bytes[i] = binaryString.charCodeAt(i)
+    }
+    return new Blob([bytes.buffer], { type: 'image/png' })
+  }
+
+  const base64 = VueCanvasDrawing.value.save()
+
+  // 将Base64的PNG图片转换为Blob对象
+  const blob = base64ToBlob(base64)
+
+  // 创建File对象，这里假设你想将文件命名为'canvasImage.png'
+  const file = new File([blob], 'canvasImage.png', { type: 'image/png' })
+
+  // 打印File对象
+  console.log(file)
 }
 
 watch(
@@ -148,10 +185,15 @@ onMounted(() => {
   width: calc(100vw - 332px);
   .flex-row {
     display: flex;
-    flex-direction: row;
     .source {
+      display: flex;
       width: 100%;
       height: 100%;
+      .info {
+        margin-left: 30px;
+        display: flex;
+        flex-direction: column;
+      }
     }
   }
 }
