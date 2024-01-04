@@ -35,11 +35,21 @@
           <el-row style="margin-top: 10px" type="flex" align="middle">
             <span>画布大小：</span>
             <div>
-              <el-input-number v-model="width" :min="300" :max="1200" />
+              <el-input-number
+                disabled
+                v-model="width"
+                :min="300"
+                :max="1200"
+              />
             </div>
             <span>&emsp;×&emsp;</span>
             <div>
-              <el-input-number v-model="height" :min="200" :max="800" />
+              <el-input-number
+                disabled
+                v-model="height"
+                :min="200"
+                :max="800"
+              />
             </div>
           </el-row>
           <el-row style="margin-top: 10px" type="flex" align="middle">
@@ -57,7 +67,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue'
-import { useStore } from '../../store'
+import { useStore } from '@/store'
 import VueDrawingCanvas from 'vue-drawing-canvas'
 import { ElNotification } from 'element-plus'
 

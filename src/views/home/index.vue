@@ -25,9 +25,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import HomeHeader from '../../components/ModelHome/HomeHeader.vue'
-import HomeSideBar from '../../components/ModelHome/HomeSideBar.vue'
-import HomeDrawingBoard from '../../components/ModelHome/HomeDrawingBoard.vue'
+import HomeHeader from '@/components/ModelHome/HomeHeader.vue'
+import HomeSideBar from '@/components/ModelHome/HomeSideBar.vue'
+import HomeDrawingBoard from '@/components/ModelHome/HomeDrawingBoard.vue'
 
 const undoStatus = ref<number>(0)
 const undo = () => {

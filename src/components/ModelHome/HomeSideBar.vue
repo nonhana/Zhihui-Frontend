@@ -278,13 +278,13 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useStore } from '../../store'
+import { useStore } from '@/store'
 import {
   PAINT_TOOLS,
   PAINT_CONTROLLERS,
   PAINT_CONTROLLERS_ICONS
-} from '../../utils/constants'
-import ImgCropper from '../../components/Little/Util/ImgCropper.vue'
+} from '@/utils/constants'
+import ImgCropper from '@/components/Little/Util/ImgCropper.vue'
 import HomeSideBarTools from '@/assets/svgs/HomeSideBarTools.svg'
 import HomeSideBarController from '@/assets/svgs/HomeSideBarController.svg'
 import { Lock, Unlock } from '@element-plus/icons-vue'

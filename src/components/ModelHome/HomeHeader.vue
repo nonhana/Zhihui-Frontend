@@ -60,7 +60,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useStore } from '../../store'
+import { useStore } from '@/store'
 import { Search, ArrowDown } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 import { RefreshLeft, RefreshRight } from '@element-plus/icons-vue'

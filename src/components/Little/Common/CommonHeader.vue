@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { HEADER_TABS } from '../../../utils/constants'
+import { HEADER_TABS } from '@/utils/constants'
 import logo from '@/assets/imgs/logo.png'
 </script>
 
