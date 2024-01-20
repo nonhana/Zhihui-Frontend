@@ -452,7 +452,6 @@ const controllerTrigger = (type: number) => {
 <style scoped lang="scss">
 .homesidebar-wrapper {
   position: relative;
-  background-color: #fff;
   .list {
     user-select: none;
     border: 1px solid #9e9e9e;
@@ -463,6 +462,7 @@ const controllerTrigger = (type: number) => {
     display: flex;
     flex-direction: column;
     font-family: ZhanKuKuaiLeTi;
+    background-color: #fff;
     &-header {
       margin: 10px 0;
       display: flex;

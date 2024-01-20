@@ -102,6 +102,7 @@ const savePrompt = () => {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: #fff;
   .divider {
     width: 1px;
     height: 32px;

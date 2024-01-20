@@ -52,8 +52,8 @@ const getStrokes = () => {
 
 <style scoped lang="scss">
 .index {
+  position: relative;
   width: 100%;
   height: 100%;
-  background-color: #fff;
 }
 </style>
