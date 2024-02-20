@@ -6,6 +6,7 @@ export const usePaintConfigStore = defineStore('paintConfig', {
     prompt: ref<string>(''),
     presentTool: ref<string>(''),
     toolSettings: ref<{
+      empty: boolean
       line: number
       color: string
       lineCap: string
@@ -17,6 +18,7 @@ export const usePaintConfigStore = defineStore('paintConfig', {
       backgroundColor: string
       backgroundImage: string
     }>({
+      empty: true,
       line: 5,
       color: '#3d3d3d',
       lineCap: 'square',

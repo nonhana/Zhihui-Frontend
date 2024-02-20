@@ -71,6 +71,24 @@
           justify="space-between"
           align="middle"
         >
+          <span>画笔颜色：</span>
+          <div>
+            <span style="margin-right: 20px">{{
+              paintConfig.toolSettings.color
+            }}</span>
+            <el-color-picker
+              v-model="paintConfig.toolSettings.color"
+              size="large"
+              popper-class="hex"
+            />
+          </div>
+        </el-row>
+        <el-row
+          style="margin-bottom: 10px"
+          type="flex"
+          justify="space-between"
+          align="middle"
+        >
           <span>画笔粗细：</span>
           <el-select
             v-model="paintConfig.toolSettings.line"
@@ -122,44 +140,6 @@
             />
           </el-select>
         </el-row>
-      </div>
-      <template #footer>
-        <el-button @click="toolStatus[0] = false">取消</el-button>
-        <el-button type="primary" @click="toolStatus[0] = false">
-          确认
-        </el-button>
-      </template>
-    </el-dialog>
-    <el-dialog v-model="toolStatus[4]" title="画笔颜色设置" width="400">
-      <div>
-        <el-row
-          style="margin-bottom: 10px"
-          type="flex"
-          justify="space-between"
-          align="middle"
-        >
-          <span>画笔颜色：</span>
-          <div>
-            <span style="margin-right: 20px">{{
-              paintConfig.toolSettings.color
-            }}</span>
-            <el-color-picker
-              v-model="paintConfig.toolSettings.color"
-              size="large"
-              popper-class="hex"
-            />
-          </div>
-        </el-row>
-      </div>
-      <template #footer>
-        <el-button @click="toolStatus[4] = false">取消</el-button>
-        <el-button type="primary" @click="toolStatus[4] = false">
-          确认
-        </el-button>
-      </template>
-    </el-dialog>
-    <el-dialog v-model="toolStatus[5]" title="形状设置" width="400">
-      <div>
         <el-row
           style="margin-bottom: 10px"
           type="flex"
@@ -200,13 +180,13 @@
         </el-row>
       </div>
       <template #footer>
-        <el-button @click="toolStatus[5] = false">取消</el-button>
-        <el-button type="primary" @click="toolStatus[5] = false">
+        <el-button @click="toolStatus[0] = false">取消</el-button>
+        <el-button type="primary" @click="toolStatus[0] = false">
           确认
         </el-button>
       </template>
     </el-dialog>
-    <el-dialog v-model="toolStatus[6]" title="橡皮设置" width="400">
+    <el-dialog v-model="toolStatus[4]" title="橡皮设置" width="400">
       <div>
         <el-row
           style="margin-bottom: 10px"
@@ -229,8 +209,8 @@
         </el-row>
       </div>
       <template #footer>
-        <el-button @click="toolStatus[6] = false">取消</el-button>
-        <el-button type="primary" @click="toolStatus[6] = false">
+        <el-button @click="toolStatus[4] = false">取消</el-button>
+        <el-button type="primary" @click="toolStatus[4] = false">
           确认
         </el-button>
       </template>
@@ -299,7 +279,6 @@ const emits = defineEmits<{
 
 /* ----------绘画工具相关配置---------- */
 const toolStatus = ref<boolean[]>([
-  false,
   false,
   false,
   false,
@@ -388,8 +367,17 @@ const fillShapeList: {
 const setTool = (tool: string) => {
   if (paintConfig.presentTool === tool) {
     paintConfig.presentTool = ''
+    paintConfig.toolSettings.empty = true
   } else {
     paintConfig.presentTool = tool
+    paintConfig.toolSettings.empty = false
+    if (tool === '毛笔' || tool === '刷子' || tool === '荧光笔') {
+      ElNotification({
+        title: '提示',
+        message: '该工具暂未开放，将使用勾线笔代替',
+        type: 'warning'
+      })
+    }
     if (tool === '橡皮擦') {
       paintConfig.toolSettings.eraser = true
     } else {
@@ -452,13 +440,16 @@ const controllerTrigger = (type: number) => {
 <style scoped lang="scss">
 .homesidebar-wrapper {
   position: relative;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   .list {
     user-select: none;
     border: 1px solid #9e9e9e;
     border-radius: 10px;
     width: 200px;
     padding: 10px 20px;
-    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
     font-family: ZhanKuKuaiLeTi;

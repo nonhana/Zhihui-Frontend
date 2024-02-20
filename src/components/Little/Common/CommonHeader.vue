@@ -6,16 +6,27 @@
     </div>
 
     <div class="tabs">
-      <div class="tabs-item" v-for="(tab, index) in HEADER_TABS" :key="index">
-        <span>{{ tab }}</span>
+      <div
+        class="tabs-item"
+        v-for="(tab, index) in HEADER_TABS"
+        :key="index"
+        @click="router.push(tab.value)"
+      >
+        <span :class="{ active: tab.value === route.name }">{{
+          tab.label
+        }}</span>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { useRouter, useRoute } from 'vue-router'
 import { HEADER_TABS } from '@/utils/constants'
 import logo from '@/assets/imgs/logo.png'
+
+const router = useRouter()
+const route = useRoute()
 </script>
 
 <style scoped lang="scss">
@@ -55,6 +66,9 @@ import logo from '@/assets/imgs/logo.png'
       display: flex;
       align-items: center;
       &:hover {
+        color: #5b54e4;
+      }
+      .active {
         color: #5b54e4;
       }
     }

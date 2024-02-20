@@ -1,5 +1,5 @@
 <template>
-  <div class="index">这是首页内容</div>
+  <div class="index"></div>
 </template>
 
 <script setup lang="ts"></script>
