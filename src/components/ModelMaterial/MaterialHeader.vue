@@ -36,6 +36,7 @@
 import { ref } from 'vue'
 import { useStore } from '@/store'
 import { Search, ArrowDown } from '@element-plus/icons-vue'
+import { ElNotification } from 'element-plus'
 
 const { materialFilter } = useStore()
 
@@ -51,7 +52,14 @@ const clear = () => {
 }
 
 const search = () => {
+  if (keyword.value === '')
+    ElNotification({
+      title: '提示',
+      message: '请输入搜索关键词',
+      type: 'warning'
+    })
   console.log('search', keyword.value)
+  materialFilter.reset()
   materialFilter.setFilter({ ...materialFilter.filter, keyword: keyword.value })
 }
 </script>

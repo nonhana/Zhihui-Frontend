@@ -1,8 +1,12 @@
 <template>
-  <div class="index"></div>
+  <div class="index">
+    <MaterialDetailMain />
+  </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import MaterialDetailMain from '@/components/ModelMaterialDetail/MaterialDetailMain.vue'
+</script>
 
 <style scoped lang="scss">
 .index {

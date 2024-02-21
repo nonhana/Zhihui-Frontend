@@ -82,6 +82,7 @@ import { ref, watch } from 'vue'
 import { useStore } from '@/store'
 import { MATERIAL_FILTER_CHOICES } from '@/utils/constants'
 import type { MaterialFilter } from '@/utils/types'
+import { ElNotification } from 'element-plus'
 
 const { materialFilter } = useStore()
 
@@ -123,6 +124,10 @@ const resetFilter = () => {
 
 const submitFilter = () => {
   materialFilter.setFilter(filter.value)
+  ElNotification({
+    title: '搜索成功',
+    type: 'success'
+  })
 }
 </script>
 

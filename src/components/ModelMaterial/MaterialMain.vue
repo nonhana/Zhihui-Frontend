@@ -12,7 +12,7 @@
         class="list-item"
         v-for="item in materialList"
         :key="item.material_id"
-        :href="`materialDetail/${item.material_id}`"
+        :href="`material/${item.material_id}`"
         target="_blank"
       >
         <MaterialItemVue :materialItem="item" />
@@ -46,7 +46,9 @@ const materialList = ref<MaterialItem[]>([
     desc: '素材简介',
     resultImg: 'https://dummyimage.com/400X400',
     originImg: 'https://dummyimage.com/400X400',
-    prompt: 'prompt'
+    prompt: 'prompt',
+    like: 1,
+    collect: 1
   },
   {
     material_id: 0,
@@ -58,7 +60,9 @@ const materialList = ref<MaterialItem[]>([
     desc: '素材简介',
     resultImg: 'https://dummyimage.com/400X400',
     originImg: 'https://dummyimage.com/400X400',
-    prompt: 'prompt'
+    prompt: 'prompt',
+    like: 1,
+    collect: 1
   },
   {
     material_id: 0,
@@ -70,7 +74,9 @@ const materialList = ref<MaterialItem[]>([
     desc: '素材简介',
     resultImg: 'https://dummyimage.com/400X400',
     originImg: 'https://dummyimage.com/400X400',
-    prompt: 'prompt'
+    prompt: 'prompt',
+    like: 1,
+    collect: 1
   },
   {
     material_id: 0,
@@ -82,7 +88,9 @@ const materialList = ref<MaterialItem[]>([
     desc: '素材简介',
     resultImg: 'https://dummyimage.com/400X400',
     originImg: 'https://dummyimage.com/400X400',
-    prompt: 'prompt'
+    prompt: 'prompt',
+    like: 1,
+    collect: 1
   },
   {
     material_id: 0,
@@ -94,7 +102,9 @@ const materialList = ref<MaterialItem[]>([
     desc: '素材简介',
     resultImg: 'https://dummyimage.com/400X400',
     originImg: 'https://dummyimage.com/400X400',
-    prompt: 'prompt'
+    prompt: 'prompt',
+    like: 1,
+    collect: 1
   },
   {
     material_id: 0,
@@ -106,7 +116,9 @@ const materialList = ref<MaterialItem[]>([
     desc: '素材简介',
     resultImg: 'https://dummyimage.com/400X400',
     originImg: 'https://dummyimage.com/400X400',
-    prompt: 'prompt'
+    prompt: 'prompt',
+    like: 1,
+    collect: 1
   },
   {
     material_id: 0,
@@ -118,7 +130,9 @@ const materialList = ref<MaterialItem[]>([
     desc: '素材简介',
     resultImg: 'https://dummyimage.com/400X400',
     originImg: 'https://dummyimage.com/400X400',
-    prompt: 'prompt'
+    prompt: 'prompt',
+    like: 1,
+    collect: 1
   }
 ])
 </script>
