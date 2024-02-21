@@ -67,4 +67,12 @@ export interface MaterialItem {
    * 素材prompt
    */
   prompt: string
+  /**
+   * 素材点赞量
+   */
+  like: number
+  /**
+   * 素材收藏量
+   */
+  collect: number
 }

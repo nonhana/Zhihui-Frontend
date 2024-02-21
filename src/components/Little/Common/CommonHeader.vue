@@ -10,7 +10,11 @@
         class="tabs-item"
         v-for="(tab, index) in HEADER_TABS"
         :key="index"
-        @click="router.push(tab.value)"
+        @click="
+          router.push({
+            name: tab.value
+          })
+        "
       >
         <span :class="{ active: tab.value === route.name }">{{
           tab.label
